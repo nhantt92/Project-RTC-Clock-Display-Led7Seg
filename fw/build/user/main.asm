@@ -11,22 +11,18 @@
 	.globl _main
 	.globl _TIM4_UPD_OVF_IRQHandler
 	.globl _delay
+	.globl _RTC_GetDateTime
+	.globl _RTC_Init
 	.globl _screen
+	.globl _setDigit
 	.globl _displayInit
+	.globl _TIMER_CheckTimeMS
 	.globl _TIMER_InitTime
 	.globl _TIMER_Inc
 	.globl _TIMER_Init
 	.globl _TIM4_ClearITPendingBit
-	.globl _IWDG_Enable
 	.globl _IWDG_ReloadCounter
-	.globl _IWDG_SetReload
-	.globl _IWDG_SetPrescaler
-	.globl _IWDG_WriteAccessCmd
-	.globl _GPIO_Init
-	.globl _CLK_Config
 	.globl _tick
-	.globl _IWDG_Config
-	.globl _GPIO_setup
 ;--------------------------------------------------------
 ; ram data
 ;--------------------------------------------------------
@@ -125,13 +121,13 @@ __sdcc_program_startup:
 ; code
 ;--------------------------------------------------------
 	.area CODE
-;	user/main.c: 28: void delay(uint16_t x)
+;	user/main.c: 26: void delay(uint16_t x)
 ;	-----------------------------------------
 ;	 function delay
 ;	-----------------------------------------
 _delay:
 	pushw	x
-;	user/main.c: 30: while(x--);
+;	user/main.c: 28: while(x--);
 	ldw	x, (0x05, sp)
 00101$:
 	ldw	(0x01, sp), x
@@ -140,54 +136,30 @@ _delay:
 	jrne	00101$
 	popw	x
 	ret
-;	user/main.c: 33: INTERRUPT_HANDLER(TIM4_UPD_OVF_IRQHandler, 23)
+;	user/main.c: 31: INTERRUPT_HANDLER(TIM4_UPD_OVF_IRQHandler, 23)
 ;	-----------------------------------------
 ;	 function TIM4_UPD_OVF_IRQHandler
 ;	-----------------------------------------
 _TIM4_UPD_OVF_IRQHandler:
 	div	x, a
-;	user/main.c: 35: TIM4_ClearITPendingBit(TIM4_IT_UPDATE);
+;	user/main.c: 33: TIM4_ClearITPendingBit(TIM4_IT_UPDATE);
 	push	#0x01
 	call	_TIM4_ClearITPendingBit
 	pop	a
-;	user/main.c: 36: TIMER_Inc();
+;	user/main.c: 34: TIMER_Inc();
 	call	_TIMER_Inc
-;	user/main.c: 37: IWDG_ReloadCounter();
+;	user/main.c: 35: IWDG_ReloadCounter();
 	call	_IWDG_ReloadCounter
 	iret
-;	user/main.c: 40: void IWDG_Config(void)
-;	-----------------------------------------
-;	 function IWDG_Config
-;	-----------------------------------------
-_IWDG_Config:
-;	user/main.c: 44: IWDG_WriteAccessCmd(IWDG_WriteAccess_Enable);
-	push	#0x55
-	call	_IWDG_WriteAccessCmd
-	pop	a
-;	user/main.c: 46: IWDG_SetPrescaler(IWDG_Prescaler_256);
-	push	#0x06
-	call	_IWDG_SetPrescaler
-	pop	a
-;	user/main.c: 50: IWDG_SetReload(250);
-	push	#0xfa
-	call	_IWDG_SetReload
-	pop	a
-;	user/main.c: 52: IWDG_ReloadCounter();
-	call	_IWDG_ReloadCounter
-;	user/main.c: 54: IWDG_Enable();
-	jp	_IWDG_Enable
-;	user/main.c: 58: void main() 
+;	user/main.c: 56: void main() 
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-;	user/main.c: 60: CLK_Config();
-	call	_CLK_Config
-;	user/main.c: 61: GPIO_setup(); 
-	call	_GPIO_setup
-;	user/main.c: 63: TIMER_Init();
-	call	_TIMER_Init
-;	user/main.c: 64: displayInit(GPIOC, GPIOA, GPIO_PIN_6, GPIO_PIN_5, GPIO_PIN_7, GPIO_PIN_4, GPIO_PIN_3, GPIO_PIN_2, GPIO_PIN_1, GPIO_PIN_3);
+	sub	sp, #11
+;	user/main.c: 61: RTC_Init();
+	call	_RTC_Init
+;	user/main.c: 62: displayInit(GPIOC, GPIOA, GPIO_PIN_6, GPIO_PIN_5, GPIO_PIN_7, GPIO_PIN_4, GPIO_PIN_3, GPIO_PIN_2, GPIO_PIN_1, GPIO_PIN_3);
 	push	#0x08
 	push	#0x02
 	push	#0x04
@@ -202,33 +174,68 @@ _main:
 	push	#0x50
 	call	_displayInit
 	addw	sp, #12
-;	user/main.c: 65: TIMER_InitTime(&tick);
+;	user/main.c: 63: TIMER_Init();
+	call	_TIMER_Init
+;	user/main.c: 64: TIMER_InitTime(&tick);
 	ldw	x, #_tick+0
+	ldw	(0x0a, sp), x
+	ldw	x, (0x0a, sp)
 	pushw	x
 	call	_TIMER_InitTime
 	popw	x
-;	user/main.c: 66: IWDG_Config();
-	call	_IWDG_Config
 ;	user/main.c: 67: enableInterrupts();
 	rim
-;	user/main.c: 70: while(TRUE) 
+;	user/main.c: 68: while(TRUE) 
+00104$:
+;	user/main.c: 70: if(TIMER_CheckTimeMS(&tick, 50) == 0)
+	ldw	y, (0x0a, sp)
+	push	#0x32
+	clrw	x
+	pushw	x
+	push	#0x00
+	pushw	y
+	call	_TIMER_CheckTimeMS
+	addw	sp, #6
+	tnz	a
+	jrne	00102$
+;	user/main.c: 72: RTC_GetDateTime(&time);
+	ldw	x, sp
+	incw	x
+	ldw	(0x08, sp), x
+	ldw	x, (0x08, sp)
+	pushw	x
+	call	_RTC_GetDateTime
+	popw	x
+;	user/main.c: 73: setDigit(1, time.sec/10);
+	ldw	x, (0x08, sp)
+	ld	a, (x)
+	clrw	x
+	ld	xl, a
+	ld	a, #0x0a
+	div	x, a
+	ld	a, xl
+	push	a
+	push	#0x01
+	call	_setDigit
+	popw	x
+;	user/main.c: 74: setDigit(2, time.sec%10);
+	ldw	x, (0x08, sp)
+	ld	a, (x)
+	clrw	x
+	ld	xl, a
+	ld	a, #0x0a
+	div	x, a
+	push	a
+	push	#0x02
+	call	_setDigit
+	popw	x
 00102$:
-;	user/main.c: 80: screen();
+;	user/main.c: 76: screen(250);
+	push	#0xfa
 	call	_screen
-	jra	00102$
-	ret
-;	user/main.c: 84: void GPIO_setup(void) 
-;	-----------------------------------------
-;	 function GPIO_setup
-;	-----------------------------------------
-_GPIO_setup:
-;	user/main.c: 86: GPIO_Init(GPIOD, ((GPIO_Pin_TypeDef)GPIO_PIN_5), GPIO_MODE_OUT_PP_HIGH_FAST);
-	push	#0xf0
-	push	#0x20
-	push	#0x0f
-	push	#0x50
-	call	_GPIO_Init
-	addw	sp, #4
+	pop	a
+	jra	00104$
+	addw	sp, #11
 	ret
 	.area CODE
 	.area INITIALIZER

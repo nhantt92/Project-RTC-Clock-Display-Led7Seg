@@ -6,7 +6,7 @@ FW_BASE = firmware
 SDCC_PATH ?= /usr/local/bin
 LIB_PATH =
 
-TARGET ?= main
+TARGET ?= rtc
 
 #STM8FLASH ?= /usr/bin/stm8flash
 #MCU				?= stm8s003f3

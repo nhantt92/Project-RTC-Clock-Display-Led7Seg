@@ -104,19 +104,19 @@ _CLK_PeripheralClockConfig:
 	and	a, #0x0f
 	push	a
 	ld	a, #0x01
-	ld	(0x03, sp), a
+	ld	(0x02, sp), a
 	pop	a
 	tnz	a
 	jreq	00125$
 00124$:
-	sll	(0x02, sp)
+	sll	(0x01, sp)
 	dec	a
 	jrne	00124$
 00125$:
 ;	lib/stm8s_clk.c: 60: CLK->PCKENR1 &= (uint8_t)(~(uint8_t)(((uint8_t)1 << ((uint8_t)CLK_Peripheral & (uint8_t)0x0F))));
-	ld	a, (0x02, sp)
+	ld	a, (0x01, sp)
 	cpl	a
-	ld	(0x01, sp), a
+	ld	(0x02, sp), a
 ;	lib/stm8s_clk.c: 50: if (((uint8_t)CLK_Peripheral & (uint8_t)0x10) == 0x00)
 	ld	a, (0x05, sp)
 	bcp	a, #0x10
@@ -127,7 +127,7 @@ _CLK_PeripheralClockConfig:
 ;	lib/stm8s_clk.c: 55: CLK->PCKENR1 |= (uint8_t)((uint8_t)1 << ((uint8_t)CLK_Peripheral & (uint8_t)0x0F));
 	ldw	x, #0x50c7
 	ld	a, (x)
-	or	a, (0x02, sp)
+	or	a, (0x01, sp)
 	ldw	x, #0x50c7
 	ld	(x), a
 	jra	00110$
@@ -135,7 +135,7 @@ _CLK_PeripheralClockConfig:
 ;	lib/stm8s_clk.c: 60: CLK->PCKENR1 &= (uint8_t)(~(uint8_t)(((uint8_t)1 << ((uint8_t)CLK_Peripheral & (uint8_t)0x0F))));
 	ldw	x, #0x50c7
 	ld	a, (x)
-	and	a, (0x01, sp)
+	and	a, (0x02, sp)
 	ldw	x, #0x50c7
 	ld	(x), a
 	jra	00110$
@@ -146,7 +146,7 @@ _CLK_PeripheralClockConfig:
 ;	lib/stm8s_clk.c: 68: CLK->PCKENR2 |= (uint8_t)((uint8_t)1 << ((uint8_t)CLK_Peripheral & (uint8_t)0x0F));
 	ldw	x, #0x50ca
 	ld	a, (x)
-	or	a, (0x02, sp)
+	or	a, (0x01, sp)
 	ldw	x, #0x50ca
 	ld	(x), a
 	jra	00110$
@@ -154,7 +154,7 @@ _CLK_PeripheralClockConfig:
 ;	lib/stm8s_clk.c: 73: CLK->PCKENR2 &= (uint8_t)(~(uint8_t)(((uint8_t)1 << ((uint8_t)CLK_Peripheral & (uint8_t)0x0F))));
 	ldw	x, #0x50ca
 	ld	a, (x)
-	and	a, (0x01, sp)
+	and	a, (0x02, sp)
 	ldw	x, #0x50ca
 	ld	(x), a
 00110$:

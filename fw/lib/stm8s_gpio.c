@@ -10,13 +10,22 @@
 
 #include "stm8s_gpio.h"
 
+
+void GPIO_DeInit(GPIO_TypeDef* GPIOx)
+{
+  GPIOx->ODR = GPIO_ODR_RESET_VALUE; /* Reset Output Data Register */
+  GPIOx->DDR = GPIO_DDR_RESET_VALUE; /* Reset Data Direction Register */
+  GPIOx->CR1 = GPIO_CR1_RESET_VALUE; /* Reset Control Register 1 */
+  GPIOx->CR2 = GPIO_CR2_RESET_VALUE; /* Reset Control Register 2 */
+}
+
 void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef GPIO_Pin, GPIO_Mode_TypeDef GPIO_Mode)
 {
-	/*GPIO_DeInit*/
-	GPIOx->ODR = GPIO_ODR_RESET_VALUE; /* Reset Output Data Register */
-    GPIOx->DDR = GPIO_DDR_RESET_VALUE; /* Reset Data Direction Register */
-    GPIOx->CR1 = GPIO_CR1_RESET_VALUE; /* Reset Control Register 1 */
-    GPIOx->CR2 = GPIO_CR2_RESET_VALUE; /* Reset Control Register 2 */
+	// /*GPIO_DeInit*/
+	// GPIOx->ODR = GPIO_ODR_RESET_VALUE; /* Reset Output Data Register */
+ //    GPIOx->DDR = GPIO_DDR_RESET_VALUE;  Reset Data Direction Register 
+ //    GPIOx->CR1 = GPIO_CR1_RESET_VALUE; /* Reset Control Register 1 */
+ //    GPIOx->CR2 = GPIO_CR2_RESET_VALUE; /* Reset Control Register 2 */
 
     /*GPIO_Init*/
   	GPIOx->CR2 &= (uint8_t)(~(GPIO_Pin)); /* Reset corresponding bit to GPIO_Pin in CR2 register */

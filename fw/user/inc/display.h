@@ -19,7 +19,8 @@ void displayInit(GPIO_TypeDef* portData, GPIO_TypeDef* portScan, uint8_t data, u
 void shiftOut595(uint8_t data);
 void latch595(void);
 void clear595(void);
-void display_test(void);
-void screen(void);
+void display_test(uint8_t intensy);
+void setDigit(uint8_t led, uint8_t bcd);
+void screen(uint8_t intensy);
 
 #endif

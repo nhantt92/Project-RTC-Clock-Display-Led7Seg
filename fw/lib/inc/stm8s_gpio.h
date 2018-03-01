@@ -120,6 +120,7 @@ typedef enum
 /** @addtogroup GPIO_Exported_Functions
   * @{
   */
+void GPIO_DeInit(GPIO_TypeDef* GPIOx);
 void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef GPIO_Pin, GPIO_Mode_TypeDef GPIO_Mode);
 void GPIO_Write(GPIO_TypeDef* GPIOx, uint8_t PortVal);
 void GPIO_WriteHigh(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef PortPins);

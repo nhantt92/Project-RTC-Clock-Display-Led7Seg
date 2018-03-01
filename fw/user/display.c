@@ -36,7 +36,6 @@ void displayInit(GPIO_TypeDef* portData, GPIO_TypeDef* portScan, uint8_t data, u
 	// display.buffer[1] = code7Seg[2];
 	// display.buffer[2] = code7Seg[3];
 	// display.buffer[3] = code7Seg[4];
-	memset(display.buffer, 0xff, sizeof(display.buffer));
 }
 
 void shiftOut595(uint8_t data)
@@ -123,20 +122,25 @@ void offLed(uint8_t led)
 	}
 }
 
-void screen(void)
+void screen(uint8_t intensy)
 {
 	uint8_t i;
 	for(i = 0; i < 4; i++)
 	{
 		writeBuffer(i);
 		onLed(i+1);
-		delay_us(200);
+		delay_us(intensy);
 		offLed(i+1);
-		delay_us(10);
+		delay_us(255-intensy);
 	}
 }
 
-void display_test(void)
+void setDigit(uint8_t led, uint8_t bcd)
+{
+	display.buffer[led-1] = code7Seg[bcd];
+}
+
+void display_test(uint8_t intensy)
 {
 	uint8_t i;
 	for(i = 0; i < 20; i++)
@@ -144,26 +148,26 @@ void display_test(void)
 		shiftOut595(0x3F);
 		latch595();
 		GPIO_WriteHigh(display.portScan, display.led[0]);
-		delay_us(50);
+		delay_us(intensy);
 		GPIO_WriteLow(display.portScan, display.led[0]);
-		delay_us(10);
+		delay_us(255-intensy);
 		shiftOut595(0x06);
 		latch595();
 		GPIO_WriteHigh(display.portScan, display.led[1]);
-		delay_us(50);
+		delay_us(intensy);
 		GPIO_WriteLow(display.portScan, display.led[1]);
-		delay_us(10);
+		delay_us(255-intensy);
 		shiftOut595(0x5B);
 		latch595();
 		GPIO_WriteHigh(display.portScan, display.led[2]);
-		delay_us(50);
+		delay_us(intensy);
 		GPIO_WriteLow(display.portScan, display.led[2]);
-		delay_us(10);
+		delay_us(255-intensy);
 		shiftOut595(0x4F);
 		latch595();
 		GPIO_WriteHigh(display.portData, display.led[3]);
-		delay_us(50);
+		delay_us(intensy);
 		GPIO_WriteLow(display.portData, display.led[3]);
-		delay_us(10);
+		delay_us(255-intensy);
 	}
 }

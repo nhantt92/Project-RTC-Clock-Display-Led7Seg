@@ -153,29 +153,29 @@ _TIMER_CheckTimeUS:
 	ldw	_timeGet+0, x
 ;	user/timerTick.c: 47: if(((timeGet > pTime->timeUS)&&((timeGet - pTime->timeUS) >= time))||((timeGet < pTime->timeUS)&&(((CYCLE_US -  pTime->timeUS) + timeGet + 1) >= time))){
 	ldw	y, (0x07, sp)
-	ldw	(0x03, sp), y
-	ldw	x, (0x03, sp)
-	ldw	x, (x)
-	ldw	(0x01, sp), x
+	ldw	(0x01, sp), y
 	ldw	x, (0x01, sp)
+	ldw	x, (x)
+	ldw	(0x03, sp), x
+	ldw	x, (0x03, sp)
 	cpw	x, _timeGet+0
 	jrnc	00105$
 	ldw	x, _timeGet+0
-	subw	x, (0x01, sp)
+	subw	x, (0x03, sp)
 	cpw	x, (0x09, sp)
 	jrnc	00101$
 00105$:
-	ldw	x, (0x01, sp)
+	ldw	x, (0x03, sp)
 	cpw	x, _timeGet+0
 	jrule	00102$
 	ldw	x, _timeGet+0
 	addw	x, #0x00c9
-	subw	x, (0x01, sp)
+	subw	x, (0x03, sp)
 	cpw	x, (0x09, sp)
 	jrc	00102$
 00101$:
 ;	user/timerTick.c: 48: pTime->timeUS = timeGet;
-	ldw	x, (0x03, sp)
+	ldw	x, (0x01, sp)
 	ldw	y, _timeGet+0
 	ldw	(x), y
 ;	user/timerTick.c: 49: return 0;
