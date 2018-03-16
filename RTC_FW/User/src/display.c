@@ -34,7 +34,8 @@ void displayInit(GPIO_TypeDef* portData, GPIO_TypeDef* portScan, uint8_t data, u
 	GPIO_WriteLow(display.portScan, display.led[2]);
 	GPIO_WriteLow(display.portData, display.led[3]);
 	memset(display.buffer, 0x00, sizeof(display.buffer));
-        display.blink = LED_BLINK_OFF;
+        display.blink_type = LED_BLINK_OFF;
+        display.blink_digit = LED_ALL_BLINK;
         display.intensy = DEFAULT_LED_DUTY;
         led_off();
 }
@@ -75,11 +76,6 @@ void writeBuffer(uint8_t pos)
 	latch595();
 }
 
-void setDigit(uint8_t led, uint8_t bcd)
-{       
-	display.buffer[led-1] = code7Seg[bcd];
-}
-
 void enableLed(uint8_t led)
 {
 	switch(led)
@@ -112,6 +108,41 @@ void enableLed(uint8_t led)
 			GPIO_WriteHigh(display.portData, display.led[3]);
 			break;
 		}
+                default: {
+                        GPIO_WriteLow(display.portScan, display.led[0]);
+                        GPIO_WriteLow(display.portScan, display.led[1]);
+                        GPIO_WriteLow(display.portScan, display.led[2]);
+                        GPIO_WriteLow(display.portData, display.led[3]);
+                        break;
+                }
+                  
+	}
+}
+
+void disableLed(uint8_t led)
+{
+  	switch(led)
+	{
+		case 1: 
+			GPIO_WriteLow(display.portScan, display.led[0]);
+			break;
+		case 2:
+                        GPIO_WriteLow(display.portScan, display.led[1]);
+			break;
+		case 3:
+			GPIO_WriteLow(display.portScan, display.led[2]);
+			break;
+		case 4:
+			GPIO_WriteLow(display.portData, display.led[3]);
+			break;
+                case 5:
+                        GPIO_WriteLow(display.portScan, display.led[0]);
+                        GPIO_WriteLow(display.portScan, display.led[1]);
+                        break;
+                case 6:
+                        GPIO_WriteLow(display.portScan, display.led[2]);
+                        GPIO_WriteLow(display.portData, display.led[3]);
+                        break;
                 default: {
                         GPIO_WriteLow(display.portScan, display.led[0]);
                         GPIO_WriteLow(display.portScan, display.led[1]);
@@ -171,15 +202,21 @@ void led_off(void)
   latch595();
 }
 
-void led_setIntensy(uint16_t duty)
+void led_setIntensy(uint8_t duty)
 {
-  if(duty > 15) display.intensy = 15;
+  if(duty > 30) display.intensy = 30;
+  if(duty < 1) display.intensy = 1;
   TIM1_SetCompare1((uint16_t)duty);
 }
 
 void led_set_blink(led_blink_type blink)
 {
-   display.blink = blink;
+   display.blink_type = blink;
+}
+
+void led_digit_blink(led_blink_digit digit)
+{
+   display.blink_digit = digit;
 }
 
 void led_set_digit(uint8_t digit, uint8_t value)
@@ -189,17 +226,25 @@ void led_set_digit(uint8_t digit, uint8_t value)
   display.buffer[digit-1] = code7Seg[value];
 }
 
+void led_clear_digit(uint8_t digit)
+{
+   if(digit == 0 || digit > 4) return;
+   display.buffer[digit-1] = 0x00;
+}
+
 void LED_TIM1_UPDATE_ISR(void)
 {
   static uint8_t digit = 1;
-  static uint8_t turn_on = 1;
+  //static uint8_t turn_on = 1;
   static uint16_t blink_count =0;
+  static uint8_t blink = 1;
   ++blink_count;
-  switch(display.blink)
+  switch(display.blink_type)
   {
   case LED_BLINK_OFF:
     {
-      turn_on = 1;
+      blink = 0;
+      //turn_on = 1;
       blink_count = 0;
       break;
     }
@@ -207,7 +252,9 @@ void LED_TIM1_UPDATE_ISR(void)
     {
       if(blink_count > 244)
       {
-        turn_on = !turn_on;
+        blink = !blink;
+        //turn_on = 1;
+        //turn_on = !turn_on;
         blink_count = 0;
       }
       break;
@@ -216,7 +263,9 @@ void LED_TIM1_UPDATE_ISR(void)
     {
       if(blink_count > 488)
       {
-        turn_on = !turn_on;
+        blink = !blink;
+        //turn_on = 1;
+        //turn_on = !turn_on;
         blink_count = 0;
       }
       break;
@@ -225,18 +274,22 @@ void LED_TIM1_UPDATE_ISR(void)
     {
       if(blink_count > 977)
       {
-        turn_on = !turn_on;
+        blink = !blink;
+        //turn_on = 1;
+        //turn_on = !turn_on;
         blink_count = 0;
       }
       break;
     }
   }
-  if(turn_on)
-  {
+  
+//  if(turn_on)
+//  {
     writeBuffer(digit-1);
     enableLed(digit);
-  }
-  if(++digit > 4) digit = 1;
+    if(blink) disableLed(display.blink_digit);
+    if(++digit > 4) digit = 1;
+//  }
 }
 
 void LED_TIM1_CC1_ISR(void)

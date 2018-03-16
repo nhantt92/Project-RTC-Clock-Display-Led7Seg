@@ -6,7 +6,7 @@
 void DS1307_Init(void)
 {
     SW_I2C_init();
-    DS1307_Write(DS1306_CTR, 0x90);
+    DS1307_Write(DS1307_CTRL, 0x90);
 }
 
 
@@ -36,6 +36,82 @@ uint8_t DS1307_Write(uint8_t address, uint8_t value)
     SW_I2C_stop();
     enableInterrupts();
     return TRUE;
+}
+
+void DS1307_SetPM(bool flag)
+{
+  uint8_t hrs;
+  bool oldh12;
+  DS1307_Read(DS1307_HOUR, &hrs);
+  oldh12 = (hrs & DS1307_12H_MODE) ? TRUE : FALSE;
+  hrs &= (~DS1307_12H_MODE);
+  if(flag)
+  {
+    if(oldh12) return;
+    else
+    {
+      bool pm =FALSE;
+      hrs = BCDToBin(hrs);
+      if(hrs > 12)
+      {
+        hrs -= 12;
+        pm = TRUE;
+      }
+      if(hrs == 12)
+      {
+        pm = TRUE;
+      }
+      if(hrs == 0)
+      {
+        hrs = 12;
+      }
+      hrs = BinToBCD(hrs);
+      hrs |= DS1307_12H_MODE;
+      if(pm)
+        hrs |= DS1307_12H_PM;
+    }
+  }
+  else
+  {
+    if(!oldh12) return;
+    else
+    {
+      uint8_t pm = hrs & DS1307_12H_PM;
+      hrs &= (~DS1307_12H_PM);
+      hrs = BCDToBin(hrs);
+      if(pm)
+      {
+        hrs += 12;
+        if(hrs == 24) hrs = 12;
+      }
+      else
+      {
+        if(hrs == 12)
+          hrs = 0;
+      }
+      hrs = BinToBCD(hrs);
+    }
+  }
+  DS1307_Write(DS1307_HOUR, hrs);
+}
+
+uint8_t DS1307_WriteRAM(uint8_t addr, uint8_t byte)
+{
+  if(addr < DS1307_REG_RAM || addr > DS1307_REG_END) return FALSE;
+  else DS1307_Write(addr, byte);
+  return TRUE;
+}
+
+uint8_t DS1307_ReadRAM(uint8_t addr, uint8_t byte)
+{
+  if(addr < DS1307_REG_RAM || addr > DS1307_REG_END) return FALSE;
+  else DS1307_Read(addr, &byte);
+  return TRUE;
+}
+
+void DS1307_SetOutSQW(uint8_t hz, uint8_t en)
+{
+     DS1307_Write(DS1307_CTRL, ((en<<4)|hz|0x80));
 }
 
 void DS1307_GetTime(DATATIME *getTime)

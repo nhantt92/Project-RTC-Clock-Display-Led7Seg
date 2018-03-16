@@ -4,9 +4,9 @@
   <Desktop>
     <Static>
       <Debug-Log>
-        <ColumnWidth0>20</ColumnWidth0>
-        <ColumnWidth1>1106</ColumnWidth1>
-      </Debug-Log>
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1106</ColumnWidth1></Debug-Log>
       <Build>
         <ColumnWidth0>20</ColumnWidth0>
         <ColumnWidth1>829</ColumnWidth1>
@@ -15,28 +15,31 @@
       </Build>
       <Workspace>
         <ColumnWidths>
-          <Column0>124</Column0>
-          <Column1>27</Column1>
-          <Column2>27</Column2>
-          <Column3>27</Column3>
-        </ColumnWidths>
+          
+          
+          
+          
+        <Column0>159</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
       </Workspace>
       <Disassembly>
         <col-names>
-          <item>Disassembly</item>
-          <item>_I0</item>
-        </col-names>
+          
+          
+        <item>Disassembly</item><item>_I0</item></col-names>
         <col-widths>
-          <item>500</item>
-          <item>20</item>
-        </col-widths>
+          
+          
+        <item>500</item><item>20</item></col-widths>
         <DisasmHistory/>
-        <ShowCodeCoverage>1</ShowCodeCoverage>
-        <ShowInstrProfiling>1</ShowInstrProfiling>
-      </Disassembly>
+        
+        
+      <ShowCodeCoverage>1</ShowCodeCoverage><ShowInstrProfiling>1</ShowInstrProfiling></Disassembly>
     </Static>
     <Windows>
-      <Wnd3>
+      
+      
+      
+    <Wnd0>
         <Tabs>
           <Tab>
             <Identity>TabID-4777-16847</Identity>
@@ -51,24 +54,20 @@
             <Session/>
           </Tab>
         </Tabs>
-        <SelectedTab>0</SelectedTab>
-      </Wnd3>
-      <Wnd4>
+        
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
         <Tabs>
           <Tab>
             <Identity>TabID-15525-16850</Identity>
             <TabName>Workspace</TabName>
             <Factory>Workspace</Factory>
             <Session>
-              <NodeDict>
-                <ExpandedNode>RTC_FW</ExpandedNode>
-              </NodeDict>
-            </Session>
+              
+            <NodeDict><ExpandedNode>RTC_FW</ExpandedNode></NodeDict></Session>
           </Tab>
         </Tabs>
-        <SelectedTab>0</SelectedTab>
-      </Wnd4>
-      <Wnd5>
+        
+      <SelectedTab>0</SelectedTab></Wnd1><Wnd2>
         <Tabs>
           <Tab>
             <Identity>TabID-26274-16853</Identity>
@@ -77,364 +76,21 @@
             <Session/>
           </Tab>
         </Tabs>
-        <SelectedTab>0</SelectedTab>
-      </Wnd5>
-    </Windows>
+        
+      <SelectedTab>0</SelectedTab></Wnd2></Windows>
     <Editor>
-      <Pane>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\User\src\key.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>42</YPos2>
-          <SelStart2>1634</SelStart2>
-          <SelEnd2>1634</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\User\inc\key.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>8</YPos2>
-          <SelStart2>169</SelStart2>
-          <SelEnd2>169</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\User\src\timerTick.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>31</YPos2>
-          <SelStart2>0</SelStart2>
-          <SelEnd2>0</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\User\inc\timerTick.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>0</YPos2>
-          <SelStart2>152</SelStart2>
-          <SelEnd2>166</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_gpio.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>69</YPos2>
-          <SelStart2>3575</SelStart2>
-          <SelEnd2>3575</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\User\inc\stm8s_delay.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>0</YPos2>
-          <SelStart2>175</SelStart2>
-          <SelEnd2>205</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\User\src\stm8s_delay.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>0</YPos2>
-          <SelStart2>251</SelStart2>
-          <SelEnd2>251</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_tim1.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>104</YPos2>
-          <SelStart2>4422</SelStart2>
-          <SelEnd2>4483</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\User\src\stm8s_it.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>30</YPos2>
-          <SelStart2>1381</SelStart2>
-          <SelEnd2>1381</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_tim4.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>0</YPos2>
-          <SelStart2>0</SelStart2>
-          <SelEnd2>0</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_tim4.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>0</YPos2>
-          <SelStart2>0</SelStart2>
-          <SelEnd2>0</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>17</YPos2>
-          <SelStart2>1241</SelStart2>
-          <SelEnd2>1277</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_itc.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>55</YPos2>
-          <SelStart2>2373</SelStart2>
-          <SelEnd2>2373</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\User\src\display.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>35</YPos2>
-          <SelStart2>5705</SelStart2>
-          <SelEnd2>5739</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_iwdg.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>78</YPos2>
-          <SelStart2>3279</SelStart2>
-          <SelEnd2>3279</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\User\src\main.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>29</YPos2>
-          <SelStart2>963</SelStart2>
-          <SelEnd2>963</SelEnd2>
-        </Tab>
-        <ActiveTab>15</ActiveTab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\User\inc\display.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>14</YPos2>
-          <SelStart2>721</SelStart2>
-          <SelEnd2>721</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\User\src\DS1307.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>37</YPos2>
-          <SelStart2>806</SelStart2>
-          <SelEnd2>806</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\User\inc\DS1307.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>12</YPos2>
-          <SelStart2>960</SelStart2>
-          <SelEnd2>966</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\User\src\SW_I2C.c</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>46</YPos2>
-          <SelStart2>1168</SelStart2>
-          <SelEnd2>1168</SelEnd2>
-        </Tab>
-        <Tab>
-          <Factory>TextEditor</Factory>
-          <Filename>$WS_DIR$\..\User\inc\SW_I2C.h</Filename>
-          <XPos>0</XPos>
-          <YPos>0</YPos>
-          <SelStart>0</SelStart>
-          <SelEnd>0</SelEnd>
-          <XPos2>0</XPos2>
-          <YPos2>6</YPos2>
-          <SelStart2>1086</SelStart2>
-          <SelEnd2>1086</SelEnd2>
-        </Tab>
-      </Pane>
-      <ActivePane>0</ActivePane>
-      <Sizes>
-        <Pane>
-          <X>1000000</X>
-          <Y>1000000</Y>
-        </Pane>
-      </Sizes>
-      <SplitMode>1</SplitMode>
-    </Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_gpio.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>51</YPos2><SelStart2>2555</SelStart2><SelEnd2>2580</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>941</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\User\src\DS1307.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>98</YPos2><SelStart2>2303</SelStart2><SelEnd2>2303</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\User\src\SW_I2C.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>3</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\User\inc\SW_I2C.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>134</SelStart2><SelEnd2>134</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\User\inc\DS1307.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>48</YPos2><SelStart2>1605</SelStart2><SelEnd2>1619</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\User\src\key.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>59</YPos2><SelStart2>1497</SelStart2><SelEnd2>1497</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\User\inc\key.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>27</YPos2><SelStart2>893</SelStart2><SelEnd2>901</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\User\src\system.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>76</YPos2><SelStart2>1901</SelStart2><SelEnd2>1901</SelEnd2></Tab><ActiveTab>8</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\User\inc\system.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>7</YPos2><SelStart2>448</SelStart2><SelEnd2>448</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\User\src\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>38</YPos2><SelStart2>1508</SelStart2><SelEnd2>1674</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\User\src\display.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>268</YPos2><SelStart2>8247</SelStart2><SelEnd2>8247</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\User\inc\display.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>35</YPos2><SelStart2>1141</SelStart2><SelEnd2>1156</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\User\src\stm8s_it.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>22</YPos2><SelStart2>1335</SelStart2><SelEnd2>1335</SelEnd2></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
-      <Top>
-        <Row0>
-          <Sizes>
-            <Toolbar-07189378>
-              <key>iaridepm.enu1</key>
-            </Toolbar-07189378>
-          </Sizes>
-        </Row0>
-        <Row1>
-          <Sizes>
-            <Toolbar-1F8D4250>
-              <key>debuggergui.enu1</key>
-            </Toolbar-1F8D4250>
-          </Sizes>
-        </Row1>
-        <Row2>
-          <Sizes/>
-        </Row2>
-      </Top>
-      <Left>
-        <Row0>
-          <Sizes>
-            <Wnd4>
-              <Rect>
-                <Top>-2</Top>
-                <Left>-2</Left>
-                <Bottom>417</Bottom>
-                <Right>198</Right>
-                <x>-2</x>
-                <y>-2</y>
-                <xscreen>200</xscreen>
-                <yscreen>212</yscreen>
-                <sizeHorzCX>171674</sizeHorzCX>
-                <sizeHorzCY>304598</sizeHorzCY>
-                <sizeVertCX>171674</sizeVertCX>
-                <sizeVertCY>602011</sizeVertCY>
-              </Rect>
-            </Wnd4>
-          </Sizes>
-        </Row0>
-      </Left>
-      <Right>
-        <Row0>
-          <Sizes>
-            <Wnd5>
-              <Rect>
-                <Top>-2</Top>
-                <Left>-2</Left>
-                <Bottom>417</Bottom>
-                <Right>409</Right>
-                <x>-2</x>
-                <y>-2</y>
-                <xscreen>200</xscreen>
-                <yscreen>212</yscreen>
-                <sizeHorzCX>171674</sizeHorzCX>
-                <sizeHorzCY>304598</sizeHorzCY>
-                <sizeVertCX>352790</sizeVertCX>
-                <sizeVertCY>602011</sizeVertCY>
-              </Rect>
-            </Wnd5>
-          </Sizes>
-        </Row0>
-      </Right>
-      <Bottom>
-        <Row0>
-          <Sizes>
-            <Wnd3>
-              <Rect>
-                <Top>-2</Top>
-                <Left>-2</Left>
-                <Bottom>210</Bottom>
-                <Right>1167</Right>
-                <x>-2</x>
-                <y>-2</y>
-                <xscreen>1169</xscreen>
-                <yscreen>212</yscreen>
-                <sizeHorzCX>1003433</sizeHorzCX>
-                <sizeHorzCY>304598</sizeHorzCY>
-                <sizeVertCX>171674</sizeVertCX>
-                <sizeVertCY>304598</sizeVertCY>
-              </Rect>
-            </Wnd3>
-          </Sizes>
-        </Row0>
-      </Bottom>
-      <Float>
-        <Sizes/>
-      </Float>
-    </Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-07CDB5E8><key>iaridepm.enu1</key></Toolbar-07CDB5E8></Sizes></Row0><Row1><Sizes><Toolbar-11622FF0><key>debuggergui.enu1</key></Toolbar-11622FF0></Sizes></Row1><Row2><Sizes/></Row2></Top><Left><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>416</Bottom><Right>233</Right><x>-2</x><y>-2</y><xscreen>235</xscreen><yscreen>212</yscreen><sizeHorzCX>172035</sizeHorzCX><sizeHorzCY>305036</sizeHorzCY><sizeVertCX>172035</sizeVertCX><sizeVertCY>601439</sizeVertCY></Rect></Wnd1></Sizes></Row0></Left><Right><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>416</Bottom><Right>480</Right><x>-2</x><y>-2</y><xscreen>235</xscreen><yscreen>212</yscreen><sizeHorzCX>172035</sizeHorzCX><sizeHorzCY>305036</sizeHorzCY><sizeVertCX>352855</sizeVertCX><sizeVertCY>601439</sizeVertCY></Rect></Wnd2></Sizes></Row0></Right><Bottom><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>210</Bottom><Right>1368</Right><x>-2</x><y>-2</y><xscreen>1370</xscreen><yscreen>212</yscreen><sizeHorzCX>1002928</sizeHorzCX><sizeHorzCY>305036</sizeHorzCY><sizeVertCX>172035</sizeVertCX><sizeVertCY>305036</sizeVertCY></Rect></Wnd0></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Project>
 

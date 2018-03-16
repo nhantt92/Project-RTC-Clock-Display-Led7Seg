@@ -17,12 +17,13 @@
 #include "stm8s_it.h"
 #include "timerTick.h"
 #include "DS1307.h"
+#include "key.h"
+#include "system.h"
 /* Private defines -----------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
 DATATIME timenow;
-
 TIME tick;
 
 extern DisplayLed_Struct display;
@@ -40,17 +41,24 @@ void main(void)
   TIMER_Init();
   TIMER_InitTime(&tick);
   led_setIntensy(25);
+//  led_set_blink(LED_BLINK_2HZ);
+//  led_digit_blink(LED_2_BLINK);
+  //DS1307_SetPM(TRUE);
+  Key_Init();
+  System_Init();
   enableInterrupts();
   while (1)
   { 
-    if(TIMER_CheckTimeMS(&tick, 1000)==0)
+    if(TIMER_CheckTimeMS(&tick, 500)==0)
     {
       DS1307_GetTime(&timenow);
-      led_set_digit(1, timenow.hh/10);
-      led_set_digit(2, timenow.hh%10);
-      led_set_digit(3, timenow.mn/10);
-      led_set_digit(4, timenow.mn%10);
+//      led_set_digit(1, timenow.hh/10);
+//      led_set_digit(2, timenow.hh%10);
+//      led_set_digit(3, timenow.mn/10);
+//      led_set_digit(4, timenow.mn%10);
     }
+    Key_Process();
+    System_Manager();
   }
 }
 

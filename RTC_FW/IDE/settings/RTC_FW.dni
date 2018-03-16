@@ -1,3 +1,19 @@
+[Stack]
+FillEnabled=0
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[DebugChecksum]
+Checksum=-795655505
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
 [InterruptLog]
 LogEnabled=0
 GraphEnabled=0
@@ -11,16 +27,6 @@ GraphEnabled=0
 ShowTimeLog=1
 SumEnabled=0
 ShowTimeSum=1
-[Stack]
-FillEnabled=0
-OverflowWarningsEnabled=1
-WarningThreshold=90
-SpWarningsEnabled=1
-WarnLogOnly=1
-UseTrigger=1
-TriggerName=main
-LimitSize=0
-ByteLimit=50
 [Breakpoints2]
 Count=0
 [Interrupts]
@@ -37,18 +43,10 @@ Enabled=0
 ShowSource=1
 [Simulator]
 Freq=16000000
-[DebugChecksum]
-Checksum=-302667796
-[CallStack]
-ShowArgs=0
-[Disassembly]
-MixedMode=1
 [DataSample]
 LogEnabled=0
 GraphEnabled=0
 ShowTimeLog=1
-[Breakpoints]
-Count=0
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -56,6 +54,9 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
+[Breakpoints]
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\..\User\src\system.c}.6.16" 0 0 0 0 "" 0 ""
+Count=1
 [Aliases]
 Count=0
 SuppressDialog=0

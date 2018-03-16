@@ -1,13 +1,13 @@
-#ifndef __KEY_H
-#define __KEY_H
+//#ifndef __KEY_H
+//#define __KEY_H
 
 #include "stm8s.h"
 #include "timerTick.h"
 
 #define KEY_PORT GPIOD
 
-#define KEY1 GPIO_PIN_3
-#define KEY2 GPIO_PIN_6
+#define KEY1 GPIO_PIN_6
+#define KEY2 GPIO_PIN_2
 #define KEY3 GPIO_PIN_3
 
 #define KEY1_In() GPIO_ReadInputPin(KEY_PORT, KEY1)
@@ -44,8 +44,8 @@ typedef struct{
 
 void Key_Init(void);
 void Key_Get(uint8_t port_id);
-//uint8_t Key_Get(uint8_t id);
+uint8_t keyget(uint8_t id);
 void Key_Process(void);
 void Key_Manager(void);
 
-#endif
+//#endif

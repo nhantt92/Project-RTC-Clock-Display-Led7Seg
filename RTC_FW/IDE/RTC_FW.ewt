@@ -1943,9 +1943,6 @@
   <group>
     <name>lib</name>
     <file>
-      <name>$PROJ_DIR$\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_beep.c</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_clk.c</name>
     </file>
     <file>
@@ -1989,6 +1986,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\User\src\SW_I2C.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\User\src\system.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\User\src\timerTick.c</name>
