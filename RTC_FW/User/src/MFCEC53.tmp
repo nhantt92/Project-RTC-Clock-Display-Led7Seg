@@ -43,7 +43,7 @@ void main(void)
   led_setIntensy(25);
 //  led_set_blink(LED_BLINK_2HZ);
 //  led_digit_blink(LED_2_BLINK);
-  DS1307_SetPM(FALSE);
+  DS1307_SetPM(TRUE);
   Key_Init();
   System_Init();
   enableInterrupts();
